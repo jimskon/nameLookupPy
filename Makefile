@@ -5,9 +5,9 @@
 all: PutHTML
 
 PutHTML:
-	cp namelookup.html /var/www/html/nameLookupPy/
-	cp namelookup.css /var/www/html/nameLookupPy/
-	cp namelookup.js /var/www/html/nameLookupPy/
+	cp shake.html /var/www/html/shakePy/
+	cp shake.css /var/www/html/shakePy/
+	cp shake.js /var/www/html/shakePy/
 
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/nameLookupPy/
+	ls -l /var/www/html/shakePy/

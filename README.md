@@ -1,12 +1,12 @@
-# nameLookupPy
+# shakePy
 
-A python microservice for looking up name statistics
+A python microservice for looking up words in shakspeare
 
 ## Setup python3 and Flask 
 
 
 ## Set app
- - sudo mkdir /var/www/html/nameLookupPy
- - sudo chown ubuntu /var/www/html/nameLookupPy
+ - mkdir /var/www/html/shakePy
+ - sudo chown ubuntu /var/www/html/shakePy
  - make
- - ./startpy
+ - ./start.sh
