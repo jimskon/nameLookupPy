@@ -4,9 +4,11 @@
 from nameEntry import nameEntry
 from nameMap import nameMap
 from flask import Flask
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
+                            
 @app.route("/namelookup/<name>/<type>")
 def main(name,type):
     folder = "namedata/"

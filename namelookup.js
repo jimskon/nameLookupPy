@@ -1,6 +1,7 @@
 // JavaScript for Name Data Lookup Demo
 // Jim Skon, Kenyon College, 2019
 var searchType;  // Save search type here
+const baseUrl = 'http://3.14.15.227:5000';
 
 console.log("Start!");
 searchType="Last";
@@ -24,14 +25,14 @@ document.querySelectorAll('.dropdown-menu a').forEach(item => {
     })
 })
 
-// Build output table from comma delimited list
+// Build output table from list of name data
 function nameTable(data) {
-    var table = '<table class="w3-table-all w3-hoverable" border="2"><tr><th>Name</th><th>%</th><th>Rank</th><tr>';
-    d = data["results"];
+    nameList = data['matches'];
     
-    for (var i = 0; i < d.length; i++) {
-	table += "<tr><td>"+d[i]["name"]+"</td><td>"+d[i]["percent"]+"</td><td>"+d[i]["rank"]+"</td></tr>";
-    }
+    var table = '<table class="w3-table-all w3-hoverable" border="2"><tr><th>Name</th><th>%</th><th>Rank</th><tr>';
+    nameList.forEach(function (e,i) {
+	table += "<tr><td>"+e["name"]+"</td><td>"+e["percent"]+"</td><td>"+e["rank"]+"</td></tr>";
+    });
     table += "</table>";
 
     return table;
@@ -57,7 +58,7 @@ function getMatches(){
     // Clear the previous results
     document.querySelector('#searchresults').innerHTML = "";
 
-    fetch('http://ec2-18-224-95-180.us-east-2.compute.amazonaws.com:5000/namelookup/'+searchStr+"/"+searchType, {
+    fetch(baseUrl+'/namelookup/'+searchStr+"/"+searchType, {
 	method: 'get'
     })
 	.then (response => response.json() )
